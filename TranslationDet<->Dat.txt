@@ -1,0 +1,32 @@
+Determined	card	ncbi	res
+Amoxicillin + clavulanic acid	NA	NA	Amoxicillin+Clavulanic_acid
+Amphotericin B	NA	NA	NA
+Ampicillin	Ampicillin	BETA-LACTAM	Ampicillin
+Ampicillin + Sulbactam	NA	NA	NA
+Caspofungin	NA	NA	NA
+Cefazolin	cephalosporin	CEPHALOSPORIN	NA
+Cefepim	Cefepime	CEPHALOSPORIN	Cefepime
+Cefotaxim	Cefotaxime	CEPHALOSPORIN	Cefotaxime
+Cefpodoxim	cephalosporin	CEPHALOSPORIN	NA
+Ceftazidim	Ceftazidime	CEPHALOSPORIN	Ceftazidime
+Ceftriaxon	Ceftriaxone	CEPHALOSPORIN	Ceftriaxone
+Cefuroxim	cephalosporin	CEPHALOSPORIN	NA
+Ciprofloxacin	Ciprofloxacin	CEPHALOSPORIN	Ciprofloxacin
+Clindamycin	lincosamide	LINCOSAMIDE	NA
+Ertapenem	carbapenem	BETA-LACTAM	NA
+ESBL-Screening	NA	NA	NA
+Flucloxacillin	NA	BETA-LACTAM	NA
+Fosfomycin	Fosfomycin	FOSFOMYCIN	Fosfomycin
+Gentamicin	aminoglycoside	GENTAMICIN	Gentamicin
+Imipenem	carbapenem	BETA-LACTAM	NA
+Levofloxacin	fluoroquinolone	QUINOLONE	NA
+Linezolid	NA	NA	NA
+Meropenem	carbapenem	BETA-LACTAM	NA
+Moxifloxacin	fluoroquinolone	QUINOLONE	NA
+Nitrofurantoin	nitrofuran	NA	NA
+Penicillin G	NA	BETA-LACTAM	NA
+Penicillin X	NA	BETA-LACTAM	NA
+Piperacillin	Piperacillin	BETA-LACTAM	Piperacillin
+Piperacillin + Tazobactam	NA	NA	Piperacillin+Tazobactam
+Tetracyclin	tetracycline	TETRACYCLINE	Tetracycline
+Trimethoprim + Sulfamethoxazol	NA	TRIMETHOPRIM	Trimethoprim
