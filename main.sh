@@ -1,10 +1,6 @@
 source /prj/envmic/bin/miniconda3/etc/profile.d/conda.sh
 conda activate matthes
 
-
-Rscript Auswertung.R $(ls $2/SampleResults -m | tr -d " \t\n\r") "$2/SampleResults/"
-
-sleep 60
 CreateScaffold.sh $1 $2
 printf "Sample,ResNum,Type\n" > $2/OverallResults/Plasmid_Resistance_Counts.txt
 printf "Sample,Count,Type\n" > $2/OverallResults/PlasmidCounts.csv
@@ -16,7 +12,7 @@ printf "Spezies,Count" > $2/OverallResults/Spezies_Count.csv
 > $2/OverallResults/ResistancesList_res.txt
 > $2/OverallResults/SpeciesList.txt
 
-#nextflow run Nextflow_main.nf --input $2
+nextflow run Nextflow_main.nf --input $2
 
 CheckForID_all.sh $2/SampleResults/ $2/..
 
@@ -39,14 +35,14 @@ do
 done
 
 Rscript CheckResByID.R $(ls $2/SampleResults -m | tr -d " \t\n\r") $2/..
-#BlastRefGen.sh $1 $2
+BlastRefGen.sh $1 $2
 
 for dir in `ls $2/SampleResults`; #the content of the loop is executed for every directory in the specified path. The directory name is stored in 'dir'
 do
 	CheckCoverage.sh $2/SampleResults/$dir/BlastGenomeList_$dir.txt $2/SampleResults/$dir/IdenticalCoverageGenome_$dir.txt $2/SampleResults/$dir/AllContigs_$dir.txt
 	python SplitSequences.py $2 $dir
-#	Rscript ListRes.R $2 $dir
-#	Rscript Connect_Res_Seq.R $2 $dir
+	Rscript ListRes.R $2 $dir
+	Rscript Connect_Res_Seq.R $2 $dir
 	cat $2/SampleResults/$dir/Spezies_${dir}.txt >> $2/OverallResults/Spezies.txt
 	python CheckSpecies.py $2 $dir
 	echo $dir $(python ExtractSpecies.py $2/SampleResults/$dir/Spezies_${dir}.txt) >> $2/OverallResults/SpeciesList.txt
@@ -85,7 +81,7 @@ awk '$2 ~ /Klebsiella/ {printf "%s," ,$1}' $2/OverallResults/SpeciesList.txt | R
 Rscript Compare_Res_db.R $(ls $2/SampleResults -m | tr -d " \t\n\r") "$2/SampleResults" "$2/../bin/TranslationDet<->Dat.txt"
 Rscript CheckPrediction.R $(ls $2/SampleResults -m | tr -d " \t\n\r") "$2/SampleResults" "$2/../bin/TranslationDet<->Dat.txt"
 Rscript ResPlace.R $(ls $2/SampleResults -m | tr -d " \t\n\r") $2
-#Rscript Draw_ResBarplot.R $2
+Rscript Draw_ResBarplot.R $2
 python countspecies.py $2/OverallResults 
 Rscript PieChart.R $2/OverallResults
 
